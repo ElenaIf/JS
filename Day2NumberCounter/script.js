@@ -9,14 +9,14 @@ const zero = "nolla";
 const one = "yksi";
 const two = "kaksi";
 const three = "kolme";
-const four = "nelja";
+const four = "neljä";
 const five = "viisi";
 const six = "kuusi";
 const seven = "seitsemän";
 const eight = "kahdeksan";
 const nine = "yhdeksän";
 const ten = "kymmenen";
-const hungred = "sata"
+const hundred = "sata"
 const tens = "kymmentä";
 const toista = "toista"
 
@@ -57,7 +57,7 @@ if (number <= 10 || number === 100) {
             console.log(number + " - " + ten);
             break;
         case 100:
-            console.log(number + " - " + hungred);  
+            console.log(number + " - " + hundred);  
             break;
         default:
             console.log("Error");
@@ -162,7 +162,7 @@ console.log(number + " - " + numberFirstPart + tens + numberLastPart);
    
 } else if (number > 10 && number < 20) {
 
-    switch (firstDigit) {
+    switch (secondDigit) {
         case 1:
             numberFirstPart = one;
             break;
