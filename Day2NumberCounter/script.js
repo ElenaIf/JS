@@ -1,7 +1,10 @@
 let number = Math.round(Math.random() * 100);
+
 let stringNumber = String(number);
+
 let firstDigit = Number(stringNumber.slice(0, 1));
 let secondDigit = Number(stringNumber.slice(1, 2));
+
 let numberFirstPart;
 let numberLastPart;
 
