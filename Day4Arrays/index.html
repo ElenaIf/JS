@@ -52,11 +52,28 @@
       <h2>Solution</h2>
       <h3>Task 1</h3>
       <p>Here will be your numbers: <span id="resultTask1"></span></p>
-      <button onclick="generateArray()">Generate new lottery ticket</button>
+      <button onclick="generateArray(), checkThePrize()">
+        Generate new lottery ticket
+      </button>
     </section>
-    <section>
+    <!--     <section>
       <p id="generatedTicket">Generated ticket is:</p>
       <button onclick="saveTicket()">Save ticket</button>
+    </section> -->
+    <section>
+      <h1>Your prize: <span id="prizePhrase"></span></h1>
+    </section>
+    <section>
+      <h1>Task 7</h1>
+      <h2>If you want to win for sure, press the button below</h2>
+
+      <button onclick="winForSure()">I will win!</button>
+    </section>
+    <section>
+      <h1>Task 8</h1>
+      <p>
+        In order to win, you played <span id="timesUserPlayed"></span> times!
+      </p>
     </section>
     <script src="main.js"></script>
   </body>

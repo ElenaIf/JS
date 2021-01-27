@@ -12,6 +12,7 @@ generateArray = () => {
 
 let ticket = [];
 
+/*
 saveTicket = () => {
   ticket = [];
   let count = 0;
@@ -19,14 +20,19 @@ saveTicket = () => {
     ticket.push(arrayTask1[count]);
     count++;
   }
-
-  console.log(ticket);
+  document.getElementById("generatedTicket").textContent = ticket;
 };
+*/
+
+let count = 0;
+let arrayOfOnes = [];
+let arrayOfZeros = [];
+let prizePhrase;
 
 checkThePrize = () => {
-  let count = 0;
-  let arrayOfOnes = [];
-  let arrayOfZeros = [];
+  count = 0;
+  arrayOfZeros = [];
+  arrayOfOnes = [];
 
   while (count < arrayTask1.length) {
     if (arrayTask1[count] == 1) {
@@ -38,12 +44,26 @@ checkThePrize = () => {
   }
 
   if (arrayOfOnes.length == 5) {
-    console.log("Jackpot");
+    prizePhrase = "JACKPOT!";
   } else if (arrayOfZeros.length == 5) {
-    console.log("Congratulations");
+    prizePhrase = "No prize, but congratulations anyway";
   } else if (arrayOfOnes.length > 3 && arrayOfOnes.length < 5) {
-    console.log("You won 100 euros");
+    prizePhrase = "You won 100 euros!";
   } else {
-    console.log("No prize");
+    prizePhrase = "Nothing :(";
   }
+  document.getElementById("prizePhrase").textContent = prizePhrase;
+};
+
+winForSure = () => {
+  let count = 0;
+  while (true) {
+    generateArray();
+    checkThePrize();
+    count++;
+    if (document.getElementById("prizePhrase").textContent == "JACKPOT!") {
+      break;
+    }
+  }
+  document.getElementById("timesUserPlayed").textContent = count;
 };
