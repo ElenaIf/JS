@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Array Tests</title>
+  </head>
+  <body>
+    <h1>Array tests</h1>
+    <section>
+      <h2>Guest list</h2>
+      <label for="yourName">Write your name here</label>
+      <input type="text" name="" id="yourName" />
+      <button onclick="checkInvitation()">Check my invitation</button>
+      <p id="yourInvitation"></p>
+    </section>
+    <section>
+      <h2>FizzBuzz</h2>
+      <button onclick="fizzBuzz()">Click here to add to the array</button>
+      <p id="fizzBuzz"></p>
+      <button onclick="fizzBuzz100()">
+        Click here to run FizzBuzz 100 times
+      </button>
+      <p id="fizzBuzz100"></p>
+    </section>
+    <section>
+      <h1>Who will buy lunch</h1>
+      <p><span id="lunchPayer"></span></p>
+      <button onclick="lunch()">Check who is lucky</button>
+    </section>
+
+    <script src="main.js"></script>
+  </body>
+</html>
