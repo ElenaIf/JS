@@ -1,16 +1,25 @@
 let arrayTask1 = [];
+let ticket = [];
+let count = 0;
+let arrayOfOnes = [];
+let arrayOfZeros = [];
+let prizePhrase;
+
+let winningStatus = false;
+
+const TICKET_PRICE = 0.5;
+const RANGE_OF_NUMBERS = 7;
+const JACKPOT_TO_BE_WON = 10;
 
 generateArray = () => {
   arrayTask1 = [];
   while (arrayTask1.length < 5) {
-    let randomNumber = Math.round(Math.random());
+    let randomNumber = Math.floor(Math.random() * RANGE_OF_NUMBERS);
     arrayTask1.push(randomNumber);
   }
 
   document.getElementById("resultTask1").textContent = arrayTask1;
 };
-
-let ticket = [];
 
 /*
 saveTicket = () => {
@@ -23,11 +32,6 @@ saveTicket = () => {
   document.getElementById("generatedTicket").textContent = ticket;
 };
 */
-
-let count = 0;
-let arrayOfOnes = [];
-let arrayOfZeros = [];
-let prizePhrase;
 
 checkThePrize = () => {
   count = 0;
@@ -44,6 +48,7 @@ checkThePrize = () => {
   }
 
   if (arrayOfOnes.length == 5) {
+    winningStatus = true;
     prizePhrase = "JACKPOT!";
   } else if (arrayOfZeros.length == 5) {
     prizePhrase = "No prize, but congratulations anyway";
@@ -56,16 +61,38 @@ checkThePrize = () => {
 };
 
 winForSure = () => {
+  winningStatus = false;
   let count = 0;
   while (true) {
     generateArray();
     checkThePrize();
     count++;
-    if (document.getElementById("prizePhrase").textContent == "JACKPOT!") {
+    if (winningStatus == true) {
       break;
     }
   }
   document.getElementById("timesUserPlayed").textContent = count;
-  let moneyToWin = count * 0.5;
+  let moneyToWin = count * TICKET_PRICE;
   document.getElementById("moneySpentToWin").textContent = moneyToWin;
+};
+
+iWantToWinManyTimes = () => {
+  let timesToPlayToWin = 0;
+  while (timesToPlayToWin < JACKPOT_TO_BE_WON) {
+    timesToPlayToWin++;
+    winningStatus = false;
+    let count = 0;
+    while (true) {
+      generateArray();
+      checkThePrize();
+      count++;
+      if (winningStatus == true) {
+        break;
+      }
+    }
+  }
+
+  let moneyToWin = timesToPlayToWin * TICKET_PRICE;
+  document.getElementById("moneyToWinManyTimes").textContent = moneyToWin;
+  document.getElementById("timesToWin").textContent = JACKPOT_TO_BE_WON;
 };
