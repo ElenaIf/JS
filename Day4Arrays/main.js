@@ -66,4 +66,6 @@ winForSure = () => {
     }
   }
   document.getElementById("timesUserPlayed").textContent = count;
+  let moneyToWin = count * 0.5;
+  document.getElementById("moneySpentToWin").textContent = moneyToWin;
 };
