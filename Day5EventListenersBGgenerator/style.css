@@ -1,0 +1,52 @@
+/* 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+input {
+  font-family: "Roboto", sans-serif;
+}
+
+/* We use background image for gradient always! Also we add height, attachment and repeat properties so that the gradient does not repeat */
+body {
+  background-image: linear-gradient(to right, #ffffff, #a0387f);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 50px;
+}
+
+h2 {
+  border-top: 1px dashed #c6c6c6;
+  padding-top: 50px;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+input[type="submit"] {
+  background: #333333;
+  display: block;
+  margin: 50px auto;
+  border: none;
+  color: white;
+  padding: 16px;
+}
+
+.direction {
+  display: inline-block;
+}
