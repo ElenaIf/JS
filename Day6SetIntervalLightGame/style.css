@@ -1,0 +1,19 @@
+.bulb {
+  height: 20px;
+  width: 20px;
+  background-color: green;
+  margin: 5px;
+  display: inline-block;
+}
+
+.bulb.active {
+  background-color: yellow;
+}
+
+.bulb.chosen {
+  border: 1px solid red;
+}
+
+body {
+  background-color: black;
+}
