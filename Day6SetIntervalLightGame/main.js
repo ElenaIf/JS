@@ -1,5 +1,5 @@
 const NUMBER_OF_BULBS = 20;
-const DELAY = 500;
+let DELAY = 500;
 const CHOSEN_BULB = 5;
 
 let counter = 0;
@@ -39,4 +39,8 @@ const startTheBulbs = setInterval(() => {
 
 document.getElementById("stopButton").addEventListener("click", () => {
   clearInterval(startTheBulbs);
+});
+
+document.getElementById("startOver").addEventListener("click", () => {
+  location.reload();
 });
