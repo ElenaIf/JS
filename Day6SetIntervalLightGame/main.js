@@ -16,9 +16,9 @@ while (counter < NUMBER_OF_BULBS) {
 
 //reset the pointer back to the first bulb
 counter = 0;
-arrayOfBulbs[counter] = true; //we lighted up the first bulb
 
-const startTheBulbs = setInterval(() => {
+const bulbChangingFunction = () => {
+  arrayOfBulbs[counter] = true; //we lighted up the first bulb
   //swithc off the current bulb
   arrayOfBulbs[counter] = false;
   document.getElementsByClassName("bulb")[counter].classList.remove("active");
@@ -33,7 +33,9 @@ const startTheBulbs = setInterval(() => {
   //we light up the next bulb after we switched off the previous one
   arrayOfBulbs[counter] = true;
   document.getElementsByClassName("bulb")[counter].classList.add("active");
-}, DELAY);
+};
+
+let startTheBulbs = setInterval(bulbChangingFunction, DELAY);
 
 //window.addEventListener("load", startTheBulbs);
 
@@ -42,5 +44,5 @@ document.getElementById("stopButton").addEventListener("click", () => {
 });
 
 document.getElementById("startOver").addEventListener("click", () => {
-  location.reload();
+  startTheBulbs = setInterval(bulbChangingFunction, DELAY);
 });
