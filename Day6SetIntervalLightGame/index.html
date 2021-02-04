@@ -8,7 +8,10 @@
   </head>
   <body>
     <h1>Cyclone game</h1>
-    <p>Try to catch the bulb!</p>
+    <p>
+      Try to catch the bulb! Choose how many bulbs you want and how fast they
+      should change. The start the game. Try to catch the bulb by pressing Stop!
+    </p>
     <!--     <input
       type="range"
       id="delayOfTheLight"
@@ -17,9 +20,30 @@
       step="50"
       value="50"
     /> -->
+
     <div id="bulbs"></div>
+    <button id="startTheGame">Start the game</button>
     <button id="stopButton">Stop now!</button>
-    <button id="startOver">Start the game again</button>
+
+    <p id="winningMessage"></p>
+    <label for="speed">Choose the speed of the bulbs</label>
+    <input
+      type="range"
+      id="speed"
+      name="speed"
+      min="50"
+      max="1100"
+      step="150"
+    />
+    <label for="bulbNumber">Choose the number of bulbs</label>
+    <input
+      type="range"
+      id="bulbNumber"
+      name="bulbNumber"
+      min="10"
+      max="50"
+      step="10"
+    />
     <script src="main.js"></script>
   </body>
 </html>
