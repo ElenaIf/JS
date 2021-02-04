@@ -1,8 +1,8 @@
 const NUMBER_OF_BULBS = 50;
 const DELAY = 650;
-const CHOSEN_BULB = 5;
 let arrayOfBulbs = [];
 let counter = 0;
+let CHOSEN_BULB;
 
 document.getElementById("startTheGame").addEventListener("click", () => {
   arrayOfBulbs = [];
@@ -26,7 +26,7 @@ document.getElementById("startTheGame").addEventListener("click", () => {
     arrayOfBulbs[counter] = false; // and all of those bulbs are switched off when we create them
     counter++;
   }
-
+  CHOSEN_BULB = Math.round(Math.random() * arrayOfBulbs.length);
   //reset the pointer back to the first bulb
   counter = 0;
   document.getElementsByClassName("bulb")[counter].classList.add("active"); // make first bulb active
