@@ -10,9 +10,11 @@ function CarSet(plate, maker, model, price, color) {
   this.carColor = color;
   this.discount = function () {
     if (this.carPrice > 20000) {
-      return this.carPrice - this.carPrice * 0.25;
+      return `Your price with the discount will be ${
+        this.carPrice - this.carPrice * 0.25
+      }`;
     } else {
-      return this.carPrice;
+      return `You have no discount`;
     }
   };
 }
@@ -41,7 +43,7 @@ const addMyCar = (event) => {
 
 const searchForCar = (event) => {
   event.preventDefault();
-
+  document.getElementById("discountText").textContent = ``;
   let userSearchRequest = document.getElementById("carPlate").value;
 
   for (let counter = 0; counter < arrayOfCars.length; counter++) {
@@ -56,20 +58,21 @@ const searchForCar = (event) => {
       ).textContent = `Could not find car with such a plate number.`;
     }
   }
+  form.reset();
 };
 
 const checkDiscount = (event) => {
   event.preventDefault();
 
+  document.getElementById("modelText").textContent = ``;
+
   let userSearchRequest = document.getElementById("carPlate").value;
 
   for (let counter = 0; counter < arrayOfCars.length; counter++) {
-    if (userSearchRequest == arrayOfCars[counter].carPlate) {
-      document.getElementById(
-        "discountText"
-      ).textContent = `Your price with the discount will be ${arrayOfCars[
+    if (arrayOfCars[counter].carPlate == userSearchRequest) {
+      document.getElementById("discountText").textContent = arrayOfCars[
         counter
-      ].discount()}.`;
+      ].discount();
       break;
     } else {
       document.getElementById(
@@ -77,6 +80,7 @@ const checkDiscount = (event) => {
       ).textContent = `Could not find car with such a plate number.`;
     }
   }
+  form.reset();
 };
 
 document.getElementById("submitButton").addEventListener("click", addMyCar);
