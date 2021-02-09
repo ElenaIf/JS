@@ -49,6 +49,7 @@ const searchForCar = (event) => {
       document.getElementById(
         "modelText"
       ).textContent = `The model of your car is ${arrayOfCars[counter].carModel} and the producer is ${arrayOfCars[counter].carMaker}.`;
+      break;
     } else {
       document.getElementById(
         "modelText"
@@ -59,6 +60,7 @@ const searchForCar = (event) => {
 
 const checkDiscount = (event) => {
   event.preventDefault();
+
   let userSearchRequest = document.getElementById("carPlate").value;
 
   for (let counter = 0; counter < arrayOfCars.length; counter++) {
@@ -68,6 +70,7 @@ const checkDiscount = (event) => {
       ).textContent = `Your price with the discount will be ${arrayOfCars[
         counter
       ].discount()}.`;
+      break;
     } else {
       document.getElementById(
         "discountText"
