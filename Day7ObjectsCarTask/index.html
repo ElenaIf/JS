@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form name="carForm" id="carForm">
+      <h1>Write your car information below</h1>
+      <div class="form-item">
+        <label for="carPlate">Your car plate</label>
+        <input
+          class="inputNormal"
+          type="number"
+          name="carPlate"
+          id="carPlate"
+        />
+      </div>
+      <div class="form-item">
+        <label for="carMaker">Your car producer</label>
+        <input class="inputNormal" type="text" name="carMaker" id="carMaker" />
+      </div>
+      <div class="form-item">
+        <label for="carModel">Your car model</label>
+        <input class="inputNormal" type="text" name="carModel" id="carModel" />
+      </div>
+      <div class="form-item">
+        <label for="carPrice">Your car price</label>
+        <input
+          class="inputNormal"
+          type="number"
+          name="carPrice"
+          id="carPrice"
+        />
+      </div>
+      <div class="form-item">
+        <label for="carColor">Your car color</label>
+        <input class="inputNormal" type="text" name="carColor" id="carColor" />
+      </div>
+      <div>
+        <button id="submitButton">Add my car</button>
+        <button id="search">Search</button>
+        <button id="discount">Check my discount</button>
+        <input id="resetForm" type="reset" value="Clear form" />
+      </div>
+      <div id="textBoxes">
+        <p id="modelText"></p>
+        <p id="discountText"></p>
+      </div>
+    </form>
+    <script src="main.js"></script>
+  </body>
+</html>

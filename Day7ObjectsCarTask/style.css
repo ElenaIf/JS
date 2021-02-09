@@ -1,0 +1,45 @@
+#carForm {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  background-color: cadetblue;
+  padding: 1rem;
+}
+
+.form-item {
+  display: flex;
+  margin: 0.5rem;
+}
+
+label {
+  flex: 1;
+  width: 100%;
+  margin: 0.5rem;
+}
+
+.inputNormal {
+  flex: 1;
+  width: 100%;
+  margin: 0.5rem 1rem;
+}
+
+#resetForm {
+  padding: 0.4rem;
+  margin: 1rem;
+}
+
+button {
+  padding: 0.4rem;
+  margin: 1rem;
+}
+
+#textBoxes {
+  background-color: rgba(147, 236, 181, 0.795);
+  height: 5rem;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+p {
+  margin: 1rem;
+}
