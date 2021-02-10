@@ -33,6 +33,11 @@ button {
   margin: 1rem;
 }
 
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
 #textBoxes {
   background-color: rgba(147, 236, 181, 0.795);
   height: 5rem;
@@ -42,4 +47,13 @@ button {
 
 p {
   margin: 1rem;
+}
+
+tr,
+td {
+  border: solid 1px black;
+}
+
+table {
+  margin-top: 2rem;
 }

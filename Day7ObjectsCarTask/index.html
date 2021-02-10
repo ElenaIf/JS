@@ -8,7 +8,7 @@
   </head>
   <body>
     <form name="carForm" id="carForm">
-      <h1>Write your car information below</h1>
+      <h1>Add your car information below</h1>
       <div class="form-item">
         <label for="carPlate">Your car plate</label>
         <input
@@ -39,17 +39,24 @@
         <label for="carColor">Your car color</label>
         <input class="inputNormal" type="text" name="carColor" id="carColor" />
       </div>
-      <div>
+      <div class="button-container">
         <button id="submitButton">Add my car</button>
+        <input id="resetForm" type="reset" value="Clear form" />
+      </div>
+      <div class="form-item">
+        <label for="searchRequest">Search your car with the plate number</label
+        ><input id="searchRequest" type="text" class="inputNormal" />
+      </div>
+      <div class="button-container">
         <button id="search">Search</button>
         <button id="discount">Check my discount</button>
-        <input id="resetForm" type="reset" value="Clear form" />
       </div>
       <div id="textBoxes">
         <p id="modelText"></p>
         <p id="discountText"></p>
       </div>
     </form>
+    <div class="table-print"></div>
     <script src="main.js"></script>
   </body>
 </html>

@@ -39,12 +39,21 @@ const addMyCar = (event) => {
   arrayOfCars.push(userCar);
   console.table(arrayOfCars);
   form.reset();
+
+  document.querySelector(
+    ".table-print"
+  ).innerHTML = `<table class="maker"></table>`;
+  for (let counter = 0; counter < arrayOfCars.length; counter++) {
+    let row = document.createElement("tr");
+    row.innerHTML = `<td colspan = "5">${arrayOfCars[counter].carPlate}</td>`;
+    document.querySelector(".table-print").appendChild(row);
+  }
 };
 
 const searchForCar = (event) => {
   event.preventDefault();
   document.getElementById("discountText").textContent = ``;
-  let userSearchRequest = document.getElementById("carPlate").value;
+  let userSearchRequest = document.getElementById("searchRequest").value;
 
   for (let counter = 0; counter < arrayOfCars.length; counter++) {
     if (arrayOfCars[counter].carPlate == userSearchRequest) {
@@ -66,7 +75,7 @@ const checkDiscount = (event) => {
 
   document.getElementById("modelText").textContent = ``;
 
-  let userSearchRequest = document.getElementById("carPlate").value;
+  let userSearchRequest = document.getElementById("searchRequest").value;
 
   for (let counter = 0; counter < arrayOfCars.length; counter++) {
     if (arrayOfCars[counter].carPlate == userSearchRequest) {
