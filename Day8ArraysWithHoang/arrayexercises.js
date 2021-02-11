@@ -108,6 +108,14 @@ console.log(fifthArray);
 let filteredFifthArray = Array.from(new Set(fifthArray));
 console.log("Result");
 console.log(filteredFifthArray);
+//console.log(expectedResult);
+//Hoang solution:
+let resultArray = [];
+fifthArray.forEach((num) => {
+  if (resultArray.indexOf(num) === -1) {
+    resultArray.push(num);
+  }
+});
 
 /*
 the option below also includes sorting the array
@@ -242,6 +250,38 @@ let expectedEmails = [
   "ginnyforever@gmail.com",
 ];
 
+// phone number - has number but does not have @ sign. Email has @ sign.
+//filer goes through every element of the array
+
+//will return all the names
+let peopleNames = peopleInfo.filter((el) => {
+  const hasNumber = el.split("").some((el) => !Number.isNaN(parseInt(el)));
+  if (hasNumber) return false;
+  return el.indexOf("@") === -1;
+});
+
+//will return all the phone numbers
+let peopleNumbers = peopleInfo.filter((el) => {
+  const hasNumber = el.split("").some((el) => !Number.isNaN(parseInt(el)));
+  if (hasNumber) return true;
+  return false;
+});
+
+//will return all the emails
+let peopleEmails = peopleInfo.filter((el) => {
+  const hasNumber = el.split("").some((el) => !Number.isNaN(parseInt(el)));
+  if (hasNumber) return false;
+  return el.indexOf("@") != -1;
+});
+
+console.log("Sixth task");
+console.log("Names");
+console.log(peopleNames);
+console.log("Phones");
+console.log(peopleNumbers);
+console.log("Emails");
+console.log(peopleEmails);
+
 /**
  * Task 7: The current array contains a sample text
  * use the .split(' ') method to split the paragraph to an array of words
@@ -256,3 +296,20 @@ let expectedEmails = [
 
 const sample =
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quod, soluta debitis reiciendis recusandae necessitatibus consequatur. Et odit quas quis, nulla sequi voluptatem, impedit optio, illo nihil at distinctio aliquid.";
+
+let newArray = [];
+let wordsArray = sample.split(" ");
+
+wordsArray.forEach((el) => {
+  if (el.includes("o") || el.includes("O")) {
+    newArray.push(1);
+  } else {
+    newArray.push(0);
+  }
+});
+
+console.log("Seventh task");
+console.log("Splitted line of words");
+console.log(wordsArray);
+console.log("Result");
+console.log(newArray);
