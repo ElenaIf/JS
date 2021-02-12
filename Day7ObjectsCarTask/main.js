@@ -10,11 +10,11 @@ function CarSet(plate, maker, model, price, color) {
   this.carColor = color;
   this.discount = function () {
     if (this.carPrice > 20000) {
-      return `Your price with the discount will be ${
-        this.carPrice - this.carPrice * 0.25
-      }`;
+      return `Your price with the 25% discount will be ${this.carPrice - this.carPrice * 0.25}`;
+    } else if (this.carPrice < 5000) {
+      return `Your price with the 10% discount will be ${this.carPrice - this.carPrice * 0.1}`;
     } else {
-      return `You have no discount`;
+      return `Your price with the 15% discount will be ${this.carPrice - this.carPrice * 0.15}`;
     }
   };
 }
@@ -28,25 +28,28 @@ const addMyCar = (event) => {
   let yourPrice = document.getElementById("carPrice").value;
   let yourColor = document.getElementById("carColor").value;
 
-  let userCar = new CarSet(
-    yourPlate,
-    yourMaker,
-    yourModel,
-    yourPrice,
-    yourColor
-  );
+  let userCar = new CarSet(yourPlate, yourMaker, yourModel, yourPrice, yourColor);
 
   arrayOfCars.push(userCar);
   console.table(arrayOfCars);
   form.reset();
 
-  document.querySelector(
-    ".table-print"
-  ).innerHTML = `<table class="maker"></table>`;
+  document.querySelector(".table-print").innerHTML = `<table class="maker"></table>`;
   for (let counter = 0; counter < arrayOfCars.length; counter++) {
-    let row = document.createElement("tr");
-    row.innerHTML = `<td colspan = "5">${arrayOfCars[counter].carPlate}</td>`;
-    document.querySelector(".table-print").appendChild(row);
+    let rowNames = document.createElement("tr");
+    rowNames.innerHTML = `<td>Plate number</td>
+    <td>Car Maker</td>
+    <td>Car Model</td>
+    <td>Price</td>
+    <td>Color</td>`;
+    document.querySelector(".table-print").appendChild(rowNames);
+    let newRow = document.createElement("tr");
+    newRow.innerHTML = `<td>${arrayOfCars[counter].carPlate}</td>
+    <td>${arrayOfCars[counter].carMaker}</td>
+    <td>${arrayOfCars[counter].carModel}</td>
+    <td>${arrayOfCars[counter].carPrice}</td>
+    <td>${arrayOfCars[counter].carColor}</td>`;
+    document.querySelector(".table-print").appendChild(newRow);
   }
 };
 
@@ -79,9 +82,7 @@ const checkDiscount = (event) => {
 
   for (let counter = 0; counter < arrayOfCars.length; counter++) {
     if (arrayOfCars[counter].carPlate == userSearchRequest) {
-      document.getElementById("discountText").textContent = arrayOfCars[
-        counter
-      ].discount();
+      document.getElementById("discountText").textContent = arrayOfCars[counter].discount();
       break;
     } else {
       document.getElementById(

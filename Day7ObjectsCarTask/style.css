@@ -52,8 +52,11 @@ p {
 tr,
 td {
   border: solid 1px black;
+  padding: 1rem;
+  font-size: 1rem;
 }
 
 table {
   margin-top: 2rem;
+  min-width: 300px;
 }
