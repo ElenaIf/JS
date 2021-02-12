@@ -50,6 +50,9 @@ const expected = {
 // I connected two arrays - Current and Past into one array to get all the members all together
 let arrayOfAllMembers = band.members.current.concat(band.members.past);
 
+/*If returns 0 then the elements are treated as equal
+If returns 1 then b is sorted before a
+If returns -1 then a is sorted before b */
 // Then I sort them by age. If the age is the same, then I sort according to the name. Other cases I sort by age only
 let arrayOfAllMembersSortedByAgeAndName = arrayOfAllMembers.sort((a, b) => {
   if (a.age == b.age) {
