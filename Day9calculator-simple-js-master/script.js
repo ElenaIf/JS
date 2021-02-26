@@ -1,22 +1,62 @@
+/* I made a calculator but I dod not manage to make it check for double dots in the numbers. Can we go through it during the next lesson? */
+
 let firstNumber = "";
 let secondNumber = "";
 let operation = "";
 
 document.querySelectorAll(".numbers > div").forEach((button) => {
   button.addEventListener("click", function () {
-    updateNumber();
-    updateDisplay();
+    firstNumber = this.textContent;
+    /*  if (this.textContent === "." && firstNumber.match(".").length > 1) {
+      return;
+    } */
+    firstNumber = this.textContent;
+    document.querySelector("#input").textContent =
+      document.querySelector("#input").textContent + firstNumber;
   });
 });
 
-function updateNumber() {
-  if (this.textContent === "." && firstNumber.indexOf(".") > -1) {
-    return;
-  }
-  firstNumber += this.textContent;
-}
+document.querySelectorAll(".operators > div").forEach((button) => {
+  button.addEventListener("click", function () {
+    secondNumber = firstNumber;
+    firstNumber = "";
+    switch (this.textContent) {
+      case "+":
+        operation = "+";
+        break;
+      case "-":
+        operation = "-";
+        break;
+      case "×":
+        operation = "*";
+        break;
+      case "÷":
+        operation = "/";
+        break;
+      default:
+        console.log("Some error");
+        break;
+    }
+    document.querySelector("#input").textContent =
+      document.querySelector("#input").textContent + operation;
+  });
+});
 
-const calculate = () => {
+/* function updateNumber() {
+    if (this.textContent === "." && firstNumber.indexOf(".") > -1) {
+    return;
+  } 
+  firstNumber = Number(this.textContent);
+  console.log(firstNumber);
+} */
+
+/* function updateDisplayforNumber() {}
+
+function updateDisplayforOperator() {
+  document.querySelector("#input").textContent = `${firstNumber} ${operation} ${secondNumber}`;
+} */
+
+/* const calculate = () => {
   const firstNum = Number(firstNumber);
   const secondNum = Number(secondNumber);
   if (operation === "plus") {
@@ -28,9 +68,9 @@ const calculate = () => {
   } else if (operation === "divide") {
     return firstNum / secondNum;
   }
-};
+}; */
 
-function updateOperation() {
+/* function updateOperation() {
   secondNumber = firstNumber;
   firstNumber = "";
   switch (this.textContent) {
@@ -41,21 +81,21 @@ function updateOperation() {
       operation = "minus";
       break;
     case "×":
-      operation = "/";
+      operation = "multiply";
       break;
     case "÷":
-      operation = "/";
+      operation = "divide";
       break;
     default:
       console.log("Some error");
       break;
   }
   console.log(this.textContent);
-}
+} */
 
-const insert = (num) => {
+/* const insert = (num) => {
   document.querySelector("#input").textContent = document.querySelector("#input").textContent + num;
-};
+}; */
 
 const clean = () => {
   document.querySelector("#input").textContent = "";
@@ -68,15 +108,16 @@ const equal = () => {
   }
 };
 
-function updateDisplay() {
-  document.querySelector("#input").textContent = `${firstNumber} ${operation} ${secondNumber}`;
-}
-
-document.querySelectorAll(".operators > div").forEach((button) => {
-  button.addEventListener("click", function () {
-    updateOperation();
-    updateDisplay();
-  });
+document.querySelector("#result").addEventListener("click", function () {
+  equal();
+  firstNumber = "";
+  secondNumber = "";
+  operation = "";
 });
 
-document.querySelector("#result").addEventListener("click", calculate);
+document.querySelector("#clear").addEventListener("click", function () {
+  clean();
+  firstNumber = "";
+  secondNumber = "";
+  operation = "";
+});
