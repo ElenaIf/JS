@@ -1,18 +1,17 @@
-/* I made a calculator but I dod not manage to make it check for double dots in the numbers. Can we go through it during the next lesson? */
-
 let firstNumber = "";
 let secondNumber = "";
 let operation = "";
 
 document.querySelectorAll(".numbers > div").forEach((button) => {
   button.addEventListener("click", function () {
-    firstNumber = this.textContent;
-    /*  if (this.textContent === "." && firstNumber.match(".").length > 1) {
+    let numberPressed = this.textContent;
+    firstNumber = firstNumber + numberPressed;
+
+    if (numberPressed === "." && firstNumber.indexOf(".") !== firstNumber.length - 1) {
       return;
-    } */
-    firstNumber = this.textContent;
+    }
     document.querySelector("#input").textContent =
-      document.querySelector("#input").textContent + firstNumber;
+      document.querySelector("#input").textContent + numberPressed;
   });
 });
 
