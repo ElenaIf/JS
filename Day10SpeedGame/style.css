@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 1rem;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: rgb(27, 45, 82);
+  background-image: url(https://source.unsplash.com/m4sGYaHYN5o);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.gameOver {
+  background-color: rgb(221, 162, 162);
+  width: 40vw;
+  height: 60vh;
+  justify-content: space-between;
+  position: absolute;
+  margin-top: 20vh;
+  margin-left: 30vw;
+  /* Can also use visibility */
+  display: none;
+}
+
+.showGameOver {
+  display: flex;
+}
+
+.close {
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  background-color: transparent;
+}
+
+.gameOverText {
+  align-self: center;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+section {
+  background-color: rgba(255, 255, 255, 0.884);
+  min-width: 60vw;
+  min-height: 50vh;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+p {
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+button {
+  text-decoration: none;
+  border: none;
+}
+
+.gameButton {
+  padding: 3rem;
+  border-radius: 100%;
+  margin: 1rem;
+  border: none;
+  background-color: rgba(78, 44, 38, 0.692);
+  text-decoration: none;
+}
+
+.gameButton:visited {
+  text-decoration: none;
+  border: none;
+}
+
+.gameButton:active {
+  text-decoration: none;
+  border: none;
+}
+
+.startStopButtons {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  margin: 1rem;
+  background-color: rgb(224, 173, 224);
+  color: rgba(41, 21, 18, 0.692);
+}
+
+.chosenButton {
+  padding: 3rem;
+  border-radius: 100%;
+  margin: 1rem;
+  border: none;
+  background-color: rgb(202, 202, 5);
+}
