@@ -11,42 +11,56 @@ lightButtons.forEach((button) => {
   button.addEventListener("click", function () {
     let buttonPressed = this.id;
     clicked(buttonPressed);
-    return buttonPressed;
   });
 });
 
 function clicked(i) {
-  console.log("clicked " + i);
   score++;
   printScore.textContent = `Your score is ${score}`;
+  console.log("User pressed button " + i);
 }
 
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-/* setInterval(function () {
-  counter = getRandomNumber(1, 4);
-}, 1000); */
+let timer;
 
-function startGame() {
-  console.log("Game started");
-  let nextActive = pickNew(active);
-
-  active = nextActive;
-
-  function pickNew(active) {
-    let nextActive = getRandomNumber(1, 4);
-    if (nextActive != active) {
-      return nextActive;
-    } else {
-      return pickNew(active);
-    }
-  }
+function lightChangingFunction() {
+  let active = getRandomNumber(0, 3);
+  document.querySelectorAll(".gameButton")[active].classList.add("chosenButton");
+  setTimeout(function () {
+    document.querySelectorAll(".gameButton")[active].classList.remove("chosenButton");
+  }, 500);
+  timer = setTimeout(lightChangingFunction, 1000);
 }
+
+/* function startGame() {
+  setInterval(function () {
+    console.log("Game started");
+
+    let nextActive = pickNew(active);
+
+    active = nextActive;
+
+    function pickNew(active) {
+      let nextActive = getRandomNumber(0, 3);
+      if (nextActive != active) {
+        document.querySelectorAll(".gameButton")[active].classList.add("chosenButton");
+        return nextActive;
+      } else {
+        return pickNew(active);
+      }
+    }
+    console.log(pickNew(active));
+
+    document.querySelectorAll(".gameButton")[active].classList.remove("chosenButton");
+  }, 1000);
+} */
 
 function stopTheGame() {
   gameOver.classList.add("showGameOver");
+  clearTimeout(timer);
 }
 
 function closeTheWindow() {
@@ -55,6 +69,4 @@ function closeTheWindow() {
 
 stopButton.addEventListener("click", stopTheGame);
 closeButton.addEventListener("click", closeTheWindow);
-startGameButton.addEventListener("click", function () {
-  setInterval(startGame, 1000);
-});
+startGameButton.addEventListener("click", lightChangingFunction);
