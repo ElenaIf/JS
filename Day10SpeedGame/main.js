@@ -1,14 +1,19 @@
 let gameOver = document.getElementById("gameOver");
-let closeButton = document.getElementById("close");
-let lightButtons = document.querySelectorAll(".gameButton");
 let printScore = document.querySelector("#score");
+
+let lightButtons = document.querySelectorAll(".gameButton");
+
 let startGameButton = document.getElementById("startGame");
+let closeButton = document.getElementById("close");
 
 let score = 0;
 let active = 0;
 let timer;
-let temp;
 let nextActive;
+let gameSpeed = 1000;
+let timesBlinked = 0;
+let blinked = [];
+let gameMusic;
 
 //returns a random number between min and max (both included)
 function getRandomNumber(min, max) {
@@ -24,11 +29,27 @@ function listenPress() {
   });
 }
 
+function playGameMusic() {
+  gameMusic = new Audio("Spooky-Island.mp3");
+
+  gameMusic.play();
+  gameMusic.loop = true;
+}
+
 function lightChangingFunction() {
   nextActive = chooseNewNumber(active);
 
   lightButtons[nextActive].classList.toggle("chosenButton");
   lightButtons[active].classList.remove("chosenButton");
+
+  timesBlinked++;
+  blinked.push(timesBlinked);
+  console.log(blinked);
+
+  if (blinked.length > 3) {
+    stopTheGame();
+    return;
+  }
 
   active = nextActive;
 
@@ -41,12 +62,14 @@ function lightChangingFunction() {
     }
   }
 
-  timer = setTimeout(lightChangingFunction, 1000);
+  timer = setTimeout(lightChangingFunction, gameSpeed);
 }
 
 function clicked(i) {
   if (i == nextActive + 1) {
     score++;
+    gameSpeed -= 50;
+    blinked = [];
   } else {
     stopTheGame();
   }
@@ -55,6 +78,10 @@ function clicked(i) {
 }
 
 function stopTheGame() {
+  gameMusic.pause();
+  let gameOverMusic = new Audio("Trashy-Aliens.mp3");
+  gameOverMusic.play();
+  gameOverMusic.loop = true;
   let gameOverMessage = "";
   if (score < 4) {
     gameOverMessage = "Wow, you are really bad at this game";
@@ -76,3 +103,4 @@ function closeTheWindow() {
 closeButton.addEventListener("click", closeTheWindow);
 startGameButton.addEventListener("click", lightChangingFunction);
 startGameButton.addEventListener("click", listenPress);
+startGameButton.addEventListener("click", playGameMusic);

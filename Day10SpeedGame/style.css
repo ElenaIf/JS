@@ -118,5 +118,6 @@ button {
   border-radius: 100%;
   margin: 1rem;
   border: none;
-  background-color: rgb(202, 202, 5);
+  background-image: url("dice.svg");
+  background-color: transparent;
 }
