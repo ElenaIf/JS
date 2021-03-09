@@ -1,72 +1,78 @@
-let stopButton = document.getElementById("stopGame");
 let gameOver = document.getElementById("gameOver");
 let closeButton = document.getElementById("close");
 let lightButtons = document.querySelectorAll(".gameButton");
-let score = 0;
 let printScore = document.querySelector("#score");
-let active = 0;
 let startGameButton = document.getElementById("startGame");
 
-lightButtons.forEach((button) => {
-  button.addEventListener("click", function () {
-    let buttonPressed = this.id;
-    clicked(buttonPressed);
-  });
-});
+let score = 0;
+let active = 0;
+let timer;
+let temp;
+let nextActive;
 
-function clicked(i) {
-  score++;
-  printScore.textContent = `Your score is ${score}`;
-  console.log("User pressed button " + i);
-}
-
+//returns a random number between min and max (both included)
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-let timer;
+function listenPress() {
+  lightButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      let buttonPressed = this.id;
+      clicked(buttonPressed);
+    });
+  });
+}
 
 function lightChangingFunction() {
-  let active = getRandomNumber(0, 3);
-  document.querySelectorAll(".gameButton")[active].classList.add("chosenButton");
-  setTimeout(function () {
-    document.querySelectorAll(".gameButton")[active].classList.remove("chosenButton");
-  }, 500);
+  nextActive = chooseNewNumber(active);
+
+  lightButtons[nextActive].classList.toggle("chosenButton");
+  lightButtons[active].classList.remove("chosenButton");
+
+  active = nextActive;
+
+  function chooseNewNumber(active) {
+    let nextActive = getRandomNumber(0, 3);
+    if (nextActive != active) {
+      return nextActive;
+    } else {
+      return chooseNewNumber(active);
+    }
+  }
+
   timer = setTimeout(lightChangingFunction, 1000);
 }
 
-/* function startGame() {
-  setInterval(function () {
-    console.log("Game started");
+function clicked(i) {
+  if (i == nextActive + 1) {
+    score++;
+  } else {
+    stopTheGame();
+  }
 
-    let nextActive = pickNew(active);
-
-    active = nextActive;
-
-    function pickNew(active) {
-      let nextActive = getRandomNumber(0, 3);
-      if (nextActive != active) {
-        document.querySelectorAll(".gameButton")[active].classList.add("chosenButton");
-        return nextActive;
-      } else {
-        return pickNew(active);
-      }
-    }
-    console.log(pickNew(active));
-
-    document.querySelectorAll(".gameButton")[active].classList.remove("chosenButton");
-  }, 1000);
-} */
+  printScore.textContent = `Your score is ${score}`;
+}
 
 function stopTheGame() {
+  let gameOverMessage = "";
+  if (score < 4) {
+    gameOverMessage = "Wow, you are really bad at this game";
+  } else if (score >= 4 && score < 8) {
+    gameOverMessage = "You are ok";
+  } else if (score >= 8) {
+    gameOverMessage = "You are actually quite good at this game";
+  }
   gameOver.classList.add("showGameOver");
+  gameOver.querySelector(".gameOverText").textContent = `Game Over!
+  Your score is ${score}. ${gameOverMessage}`;
   clearTimeout(timer);
 }
 
 function closeTheWindow() {
-  gameOver.classList.remove("showGameOver");
+  window.location.reload();
 }
 
-stopButton.addEventListener("click", stopTheGame);
 closeButton.addEventListener("click", closeTheWindow);
 startGameButton.addEventListener("click", lightChangingFunction);
+startGameButton.addEventListener("click", listenPress);

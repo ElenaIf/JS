@@ -25,6 +25,7 @@ body {
   position: absolute;
   margin-top: 20vh;
   margin-left: 30vw;
+  padding: 2rem;
   /* Can also use visibility */
   display: none;
 }
