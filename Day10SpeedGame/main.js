@@ -104,15 +104,16 @@ function stopTheGame() {
   gameOverMusic.loop = true;
   let gameOverMessage = "";
   if (score < 4) {
-    gameOverMessage = "Wow, you are really bad at this game";
+    gameOverMessage = "Wow, you are really bad at this game...";
   } else if (score >= 4 && score < 8) {
-    gameOverMessage = "You are ok";
+    gameOverMessage = "You are ok...";
   } else if (score >= 8) {
-    gameOverMessage = "You are actually quite good at this game";
+    gameOverMessage = "You are actually quite good at this game.";
   }
   gameOver.classList.add("showGameOver");
-  gameOver.querySelector(".gameOverText").textContent = `Game Over!
-  Your score is ${score}. ${gameOverMessage}`;
+  gameOver.querySelector(
+    ".gameOverText"
+  ).innerHTML = `<p class="scoreResult">Your score is ${score}.</p><p> ${gameOverMessage}</p>`;
   clearTimeout(timer);
 }
 

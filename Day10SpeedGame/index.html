@@ -9,35 +9,35 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="gameOver" class="gameOver">
-      <p class="gameOverText"></p>
+    <main>
+      <div class="container">
+        <section class="game">
+          <div id="gameOver" class="gameOver">
+            <button id="close" class="close">&times;</button>
+            <h2 class="gameOverHeading">GAME OVER!</h2>
+            <div class="gameOverText"></div>
+          </div>
 
-      <button id="close" class="close">&times;</button>
-    </div>
-    <div class="container">
-      <section class="game">
-        <h1>Speed Game!</h1>
-        <p>
-          To play this game you should first press the "Start game" button. And then try to catch
-          the dice.
-        </p>
-        <p>Good luck!</p>
-        <h2 id="score">Here will be your score</h2>
-        <div class="gameButtons">
-          <button id="1" class="gameButton"></button>
-          <button id="2" class="gameButton"></button>
-          <button id="3" class="gameButton"></button>
-          <button id="4" class="gameButton"></button>
-        </div>
-        <div>
-          <button id="startGame" class="startStopButtons">Start game</button>
-        </div>
-        <p>
-          I am still working on the additional features for this game, but I added the link to
-          itslearning already not to forget later.
-        </p>
-      </section>
-    </div>
+          <h1>Speed Game!</h1>
+          <p class="instruction">
+            To play this game you should first press the "Start game" button. And then try to catch
+            the dice.
+          </p>
+          <p class="instruction">Good luck!</p>
+          <h2 id="score">Here will be your score</h2>
+          <div class="gameButtons">
+            <button id="1" class="gameButton"></button>
+            <button id="2" class="gameButton"></button>
+            <button id="3" class="gameButton"></button>
+            <button id="4" class="gameButton"></button>
+          </div>
+          <div>
+            <button id="startGame" class="startStopButtons">Start game</button>
+          </div>
+          <p>I am still working on the additional features</p>
+        </section>
+      </div>
+    </main>
     <script src="main.js"></script>
   </body>
 </html>

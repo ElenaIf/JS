@@ -17,36 +17,6 @@ body {
   background-size: cover;
 }
 
-.gameOver {
-  background-color: rgb(221, 162, 162);
-  width: 40vw;
-  height: 60vh;
-  justify-content: space-between;
-  position: absolute;
-  margin-top: 20vh;
-  margin-left: 30vw;
-  padding: 2rem;
-  /* Can also use visibility */
-  display: none;
-}
-
-.showGameOver {
-  display: flex;
-}
-
-.close {
-  font-size: 1.5rem;
-  height: 2rem;
-  width: 2rem;
-  border: none;
-  background-color: transparent;
-}
-
-.gameOverText {
-  align-self: center;
-  margin: auto;
-}
-
 .container {
   display: flex;
   justify-content: center;
@@ -55,17 +25,64 @@ body {
   width: 100vw;
 }
 
-section {
+.game {
   background-color: rgba(255, 255, 255, 0.884);
-  min-width: 60vw;
-  min-height: 50vh;
   max-width: 60vw;
   border: none;
   border-radius: 10px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding: 2rem;
+}
+
+.instruction {
+  width: 85%;
+  text-align: center;
+}
+
+.gameOver {
+  background-color: rgb(221, 162, 162);
+  min-width: 60vw;
+  min-height: 50vh;
+  max-width: 60vw;
+  position: absolute;
   padding: 1rem;
+  /* Can also use visibility */
+  display: none;
+}
+
+.gameOverHeading {
+  align-self: center;
+  margin: 1rem;
+}
+
+.gameOverText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.showGameOver {
+  display: flex;
+  flex-direction: column;
+}
+
+.scoreResult {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem;
+}
+
+.close {
+  align-self: flex-end;
+  font-size: 1.5rem;
+  height: 2rem;
+  width: 2rem;
+  margin-bottom: 2rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 h1 {
@@ -92,14 +109,9 @@ button {
   text-decoration: none;
 }
 
-.gameButton:visited {
-  text-decoration: none;
-  border: none;
-}
-
-.gameButton:active {
-  text-decoration: none;
-  border: none;
+.gameButtons {
+  flex-wrap: wrap;
+  text-align: center;
 }
 
 .startStopButtons {
@@ -118,5 +130,56 @@ button {
   margin: 1rem;
   border: none;
   background-image: url("dice.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
   background-color: transparent;
+}
+
+@media (max-width: 576px) {
+  .gameButton {
+    padding: 1.5rem;
+    margin: 0;
+  }
+
+  .instruction {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  #score {
+    font-size: 1rem;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .gameButtons {
+    margin-bottom: 1rem;
+  }
+
+  .gameOver {
+    position: absolute;
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+
+  .startStopButtons {
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+
+  .game {
+    max-width: 80vw;
+    padding: 1rem;
+  }
 }
