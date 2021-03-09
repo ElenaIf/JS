@@ -26,15 +26,14 @@ function addPokemon(pokeData) {
   newEl.className = "pokemon";
   newEl.onclick = printHello;
   newEl.id = `pokemon${pokeData.id}`;
-  newEl.innerHTML = `<div>${pokeData.name}</div>
-  <div>
-  <img
-    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeData.id}.png"
-  />
-</div>`;
+  newEl.innerHTML = `<div>${pokeData.name}</div>`;
   document.querySelector("#pokemonContainer").appendChild(newEl);
-}
-
-function printHello(fetchPokemonData) {
-  console.log("Hello");
+  function printHello() {
+    console.log(pokeData.id);
+    const newImage = document.createElement("div");
+    newImage.innerHTML = `<img
+    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeData.id}.png"
+  />`;
+    document.getElementById(`pokemon${pokeData.id}`).appendChild(newImage);
+  }
 }
