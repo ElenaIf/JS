@@ -10,7 +10,7 @@ let score = 0;
 let active = 0;
 let timer;
 let nextActive;
-let gameSpeed = 1000;
+let gameSpeed = 1500;
 let timesBlinked = 0;
 let blinked = [];
 let gameMusic;
@@ -20,6 +20,14 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+/* I added pressedOnce variable in order to avoid the sistuation, where user can press two times on the circle and get two points of score for that. Now even if he presses twice, he will get only one point */
+let pressedOnce = false;
+
+/**
+ * This function is triggered by a button "Start Game"
+ * The function is listening, what bulb is going to be pressed.
+ * Then the id of the pressed bulb is given to the function clicked.
+ */
 function listenPress() {
   lightButtons.forEach((button) => {
     button.addEventListener("click", function () {
@@ -31,11 +39,15 @@ function listenPress() {
 
 function playGameMusic() {
   gameMusic = new Audio("Spooky-Island.mp3");
-
   gameMusic.play();
   gameMusic.loop = true;
 }
 
+/**
+ * This function also is triggered by a button "Start Game"
+ * It generates the random number nextActive
+ * Then it toggles the class for active button with the id of the nextActive
+ */
 function lightChangingFunction() {
   nextActive = chooseNewNumber(active);
 
@@ -44,7 +56,6 @@ function lightChangingFunction() {
 
   timesBlinked++;
   blinked.push(timesBlinked);
-  console.log(blinked);
 
   if (blinked.length > 3) {
     stopTheGame();
@@ -54,6 +65,7 @@ function lightChangingFunction() {
   active = nextActive;
 
   function chooseNewNumber(active) {
+    pressedOnce = false;
     let nextActive = getRandomNumber(0, 3);
     if (nextActive != active) {
       return nextActive;
@@ -65,10 +77,18 @@ function lightChangingFunction() {
   timer = setTimeout(lightChangingFunction, gameSpeed);
 }
 
+/**
+ * This function receives the id of the pressed bulb
+ * @param {receives id of the pressed bulb} i
+ */
 function clicked(i) {
-  if (i == nextActive + 1) {
+  if (i == nextActive + 1 && pressedOnce == false) {
+    pressedOnce = true;
     score++;
     gameSpeed -= 50;
+    blinked = [];
+  } else if (i == nextActive + 1 && pressedOnce == true) {
+    score = score;
     blinked = [];
   } else {
     stopTheGame();

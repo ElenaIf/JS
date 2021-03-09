@@ -35,8 +35,6 @@ body {
 }
 
 .close {
-  margin-top: 0.5rem;
-  margin-right: 1rem;
   font-size: 1.5rem;
   height: 2rem;
   width: 2rem;
@@ -75,7 +73,7 @@ h1 {
   margin: 1rem;
 }
 
-p {
+#score {
   font-size: 2rem;
   margin: 1rem;
 }
