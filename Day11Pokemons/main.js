@@ -1,5 +1,5 @@
 (function startUpload() {
-  fetch("https://pokeapi.co/api/v2/pokemon?limit=10")
+  fetch("https://pokeapi.co/api/v2/pokemon?limit=1000")
     .then((response) => {
       return response.json();
     })
