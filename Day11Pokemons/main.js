@@ -1,36 +1,40 @@
-const promises = [];
+(function () {
+  document.addEventListener("DOMContentLoaded", ExecuteScript);
 
-for (let i = 1; i <= 1000; i++) {
-  promises.push(fetch("https://pokeapi.co/api/v2/pokemon/").then((resp) => resp.json()));
-}
+  /* const users = [
+    {
+      name: {
+        title: "Mr",
+        first: "Alexander",
+        last: "Kristensen",
+      },
+      email: "alexander.kristensen@example.com",
+      phone: "98708762",
+      picture: {
+        large: "https://randomuser.me/api/portraits/men/8.jpg",
+        medium: "https://randomuser.me/api/portraits/med/men/8.jpg",
+        thumbnail: "https://randomuser.me/api/portraits/thumb/men/8.jpg",
+      },
+    },
+  ]; */
 
-Promise.all(promises).then((results) => {
-  const pokemon = results.map((data) => ({
-    name: data.name,
-    id: data.id,
-    image: data.sprites["front_default"],
-  }));
-  showPokemon(pokemon);
-});
+  function ExecuteScript() {
+    fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1000")
+      .then((resp) => resp.json())
+      .then((json) => {
+        json.results.forEach(addPokemon);
+      });
+  }
 
-function showPokemon(pokemon) {
-  const newEl = document.createElement("div");
-  newEl.className = "pokemonContainer";
-
-  newEl.innerHTML = `${pokemon.name}`;
-  document.querySelector("#listOfPokemons").appendChild(newEl);
-}
-
-/* function openPhoto() {
-  const newPhoto = document.createElement("div");
-  newPhoto.className = "PokemonImage";
-  newPhoto.innerHTML = `
-    <img
-    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
-    alt=""
-    srcset=""
-  />
-      `;
-
-  document.querySelector(".pokemonContainer").appendChild(newPhoto);
-} */
+  function addPokemon(pokemon) {
+    const newEl = document.createElement("div");
+    newEl.className = "pokemon";
+    newEl.innerHTML = `
+        <div>${pokemon.name}</div>
+        
+        <div>  <a href="${pokemon.url}">${pokemon.url}</a></div>
+       
+    `;
+    document.querySelector(".pokemonContainer").appendChild(newEl);
+  }
+})();
