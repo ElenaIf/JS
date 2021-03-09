@@ -85,7 +85,7 @@ function clicked(i) {
   if (i == nextActive + 1 && pressedOnce == false) {
     pressedOnce = true;
     score++;
-    gameSpeed = gameSpeed - gameSpeed * 0.05;
+    gameSpeed = gameSpeed - gameSpeed * 0.01;
     blinked = [];
   } else if (i == nextActive + 1 && pressedOnce == true) {
     score = score;
