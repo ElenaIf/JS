@@ -15,7 +15,7 @@ weather.temperature = {
 };
 
 function getWeather(city) {
-  let api = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${KEY}`;
+  let api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${KEY}`;
   fetch(api)
     .then(function (response) {
       let data = response.json();
