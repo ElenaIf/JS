@@ -96,7 +96,7 @@ Some exercises with functions and where I practice to use "this" keyword
 
 ### Day10SpeedGame
 
-Speed game. Here the user should catch the dice picture and get as high score as possible
+Speed game. Here the user should catch the dice picture and get as high score as possible. The speed increases all the time. Later on I am planning to add a score table as well.
 
 [LINK](https://elenaif.github.io/JS/Day10SpeedGame/index.html)
 
