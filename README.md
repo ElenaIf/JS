@@ -135,3 +135,5 @@ Exercises with arrays and loops
 Not finished. Here I tried to follow the Youtube tutorial about getching API.
 
 [LINK](https://elenaif.github.io/JS/MovieProjectTest/index.html)
+
+## PS: if you want to check portfolio, it is in another repository: [https://github.com/ElenaIf/HTML_CSS](https://github.com/ElenaIf/HTML_CSS)
