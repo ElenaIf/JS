@@ -1,6 +1,8 @@
 # JavaScript school projects for Helsinki Business College
 
-In this folder I have collected the tasks I did for the Full-Stack Web Development program in Helsinki Business College. I started studying this program in January 2021.
+In this folder I have collected the tasks I did for the JavaScript course from the Full-Stack Web Development program in Helsinki Business College. I started studying this program in January 2021.
+
+All tasks are made with vanilla JavaScript.
 
 ## Task list
 
