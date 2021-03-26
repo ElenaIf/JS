@@ -24,6 +24,12 @@ A lottery game where user wins if number 1 comes 5 times
 
 [LINK](https://elenaif.github.io/JS/Day2SimpleLottery/index.html)
 
+### Day2NumberCounter
+
+The program that prints in console the name of the random number in Finnish
+
+[LINK](https://elenaif.github.io/JS/Day2NumberCounter/index.html)
+
 ### Day3gasolineExercise
 
 I make some calculations about how much gasoline is needed. I get user input from the html form (input tag)
