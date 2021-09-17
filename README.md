@@ -140,8 +140,12 @@ Exercises with arrays and loops
 
 ### MovieProjectTest
 
-Not finished. Here I tried to follow the Youtube tutorial about getching API.
+Not finished. Here I tried to follow the Youtube tutorial about fetching API.
 
 [LINK](https://elenaif.github.io/JS/MovieProjectTest/index.html)
 
-## PS: if you want to check portfolio, it is in another repository: [https://github.com/ElenaIf/HTML_CSS](https://github.com/ElenaIf/HTML_CSS)
+### RockPaperScissors
+
+Simple Rock Paper Scissors game
+
+[LINK](https://elenaif.github.io/JS/RockPaperScissors/index.html)
