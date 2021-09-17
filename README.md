@@ -142,10 +142,6 @@ Exercises with arrays and loops
 
 Not finished. Here I tried to follow the Youtube tutorial about fetching API.
 
-[LINK](https://elenaif.github.io/JS/MovieProjectTest/index.html)
-
 ### RockPaperScissors
 
 Simple Rock Paper Scissors game
-
-[LINK](https://elenaif.github.io/JS/RockPaperScissors/index.html)
